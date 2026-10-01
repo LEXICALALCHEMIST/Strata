@@ -1,0 +1,12 @@
+{
+  "name": "strata",
+  "version": "0.1.0",
+  "description": "Architecture compiler for AI-generated software",
+  "type": "module",
+  "bin": {
+    "strata": "./src/cli.js"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
