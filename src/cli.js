@@ -1,22 +1,19 @@
 #!/usr/bin/env node
 
-const version = "0.1.0";
-const command = process.argv[2];
+import { Command } from "commander";
 
-if (!command || command === "--help" || command === "-h") {
-  console.log(`strata ${version}
+const program = new Command();
 
-Usage:
-  strata            show this help
-  strata version    print version
-`);
-  process.exit(0);
-}
+program
+  .name("strata")
+  .description("Architecture compiler for AI-generated software")
+  .version("0.1.0");
 
-if (command === "version" || command === "--version" || command === "-v") {
-  console.log(version);
-  process.exit(0);
-}
+program
+  .command("init")
+  .description("Compile a blueprint into the current folder")
+  .action(() => {
+    console.log("init is not wired yet");
+  });
 
-console.error(`Unknown command: ${command}`);
-process.exit(1);
+program.parse();

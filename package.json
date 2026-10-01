@@ -8,5 +8,10 @@
   },
   "engines": {
     "node": ">=18"
+  },
+  "dependencies": {
+    "@inquirer/prompts": "^8.7.2",
+    "commander": "^15.0.0",
+    "fs-extra": "^11.4.1"
   }
 }
