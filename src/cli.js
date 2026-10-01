@@ -4,6 +4,7 @@ import path from "path";
 import { Command } from "commander";
 import { input, select } from "@inquirer/prompts";
 import { compile } from "./compile.js";
+import { diff } from "./diff.js";
 
 const program = new Command();
 
@@ -34,6 +35,18 @@ program
       dest: path.resolve(process.cwd(), folder)
     });
     console.log(`Compiled ${name} into ${dest}`);
+  });
+
+program
+  .command("diff")
+  .description("Check the current folder against Strata contracts")
+  .action(async () => {
+    const report = await diff(process.cwd());
+    for (const check of report.checks) {
+      console.log(`${check.ok ? "ok" : "FAIL"}  ${check.id}  ${check.path}  ${check.message}`);
+    }
+    console.log(report.ok ? "No drift" : "Drift");
+    process.exit(report.ok ? 0 : 1);
   });
 
 program.parse();

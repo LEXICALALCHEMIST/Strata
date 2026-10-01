@@ -1,0 +1,11 @@
+{
+  "ok": true,
+  "checks": [
+    {
+      "id": "filesystem.session",
+      "ok": true,
+      "path": "src/lib/auth/session.js",
+      "message": "exists"
+    }
+  ]
+}
