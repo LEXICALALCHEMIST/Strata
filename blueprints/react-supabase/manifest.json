@@ -1,0 +1,10 @@
+{
+  "name": "react-supabase",
+  "version": "0.1.0",
+  "description": "React + Supabase application architecture",
+  "variables": { "APP_NAME": "string" },
+  "scaffold": "./scaffold",
+  "contracts": "./contracts",
+  "rules": "./rules",
+  "adapters": ["generic"]
+}

@@ -1,6 +1,9 @@
 #!/usr/bin/env node
 
+import path from "path";
 import { Command } from "commander";
+import { input, select } from "@inquirer/prompts";
+import { compile } from "./compile.js";
 
 const program = new Command();
 
@@ -11,9 +14,26 @@ program
 
 program
   .command("init")
-  .description("Compile a blueprint into the current folder")
-  .action(() => {
-    console.log("init is not wired yet");
+  .description("Compile a blueprint into a new folder")
+  .action(async () => {
+    const name = await select({
+      message: "Blueprint",
+      choices: [{ name: "React + Supabase", value: "react-supabase" }]
+    });
+    const appName = await input({
+      message: "App name",
+      default: "my-app"
+    });
+    const folder = await input({
+      message: "Output folder",
+      default: appName
+    });
+    const dest = await compile({
+      name,
+      appName,
+      dest: path.resolve(process.cwd(), folder)
+    });
+    console.log(`Compiled ${name} into ${dest}`);
   });
 
 program.parse();

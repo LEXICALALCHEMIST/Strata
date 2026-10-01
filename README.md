@@ -5,6 +5,15 @@ Architecture compiler for AI-generated software.
 
 First Test -
 React-Supabase
+---
+
+### What Strata Solves
+
+* **Deterministic Enforcement:** Replaces vague prompt-following with mechanically verifiable architectural contracts.
+* **Context Guardrails:** Prevents agent hallucinations, invalid imports, and structural drift before code hits disk.
+* **Token Efficiency:** Eliminates context bloat by injecting targeted architectural specifications instead of massive, unguided prompts.
+* **Zero-Guesswork Security:** Pre-audits auth, folder hierarchies, and database queries at the system layer.
+* **Automated Feedback Loops:** Generates machine-readable diff reports (`strata diff`) so agents self-correct broken rules automatically.
 
 Strata does not generate the app. It compiles a blueprint into the system the agent builds inside: filesystem, contracts, and agent rules. Later, `strata diff` checks the repo against those contracts and writes a report the agent can fix from.
 

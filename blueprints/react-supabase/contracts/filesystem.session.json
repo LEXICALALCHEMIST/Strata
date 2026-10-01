@@ -1,0 +1,6 @@
+{
+  "id": "filesystem.session",
+  "type": "file",
+  "path": "src/lib/auth/session.js",
+  "expect": "exists"
+}
